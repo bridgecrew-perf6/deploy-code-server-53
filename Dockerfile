@@ -28,7 +28,7 @@ RUN code-server --install-extension esbenp.prettier-vscode golang.go octref.vetu
 
 # Install apt packages:
 RUN sudo apt-get install -y nodejs wget
-RUN wget -q https://go.dev/dl/go1.18.linux-amd64.tar.gz && tar -C /usr/local -xzf go1.18.linux-amd64.tar.gz && rm go1.18.linux-amd64.tar.gz
+RUN wget -q https://go.dev/dl/go1.18.linux-amd64.tar.gz && sudo tar -C /usr/local -xzf go1.18.linux-amd64.tar.gz && rm go1.18.linux-amd64.tar.gz
 
 # Copy files: 
 # COPY deploy-container/myTool /home/coder/myTool
