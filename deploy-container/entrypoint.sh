@@ -3,12 +3,13 @@
 START_DIR="${START_DIR:-/home/coder/project}"
 
 PREFIX="deploy-code-server"
+export PATH=$PATH:/usr/local/go/bin
 
 mkdir -p $START_DIR
 
 # function to clone the git repo or add a user's first file if no repo was specified.
 project_init () {
-    [ -z "${GIT_REPO}" ] && echo "[$PREFIX] No GIT_REPO specified" && echo "Example file. Have questions? Join us at https://community.coder.com" > $START_DIR/coder.txt || git clone $GIT_REPO $START_DIR
+    [ -z "${GIT_REPO}" ] && echo "[$PREFIX] No GIT_REPO specified" && echo "Example file. Have questions? Join us at https://community.coder.com" || git clone $GIT_REPO $START_DIR
 }
 
 # add rclone config and start rclone, if supplied

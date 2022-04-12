@@ -24,10 +24,11 @@ RUN sudo chown -R coder:coder /home/coder/.local
 
 # Install a VS Code extension:
 # Note: we use a different marketplace than VS Code. See https://github.com/cdr/code-server/blob/main/docs/FAQ.md#differences-compared-to-vs-code
-# RUN code-server --install-extension esbenp.prettier-vscode
+RUN code-server --install-extension esbenp.prettier-vscode golang.go octref.vetur
 
 # Install apt packages:
-# RUN sudo apt-get install -y ubuntu-make
+RUN sudo apt-get install -y nodejs wget
+RUN wget -q https://go.dev/dl/go1.18.linux-amd64.tar.gz && tar -C /usr/local -xzf go1.18.linux-amd64.tar.gz && rm go1.18.linux-amd64.tar.gz
 
 # Copy files: 
 # COPY deploy-container/myTool /home/coder/myTool
